@@ -9,7 +9,7 @@ Template['quickForm_ionic'].helpers({
     if (typeof qfAtts.buttonClasses === "string") {
       atts['class'] = qfAtts.buttonClasses;
     } else {
-      atts['class'] = 'btn btn-primary';
+      atts['class'] = 'button button-positive button-block';
     }
     return atts;
   }
@@ -53,8 +53,6 @@ _.each([
   Template[tmplName].helpers({
     atts: function addFormControlAtts() {
       var atts = _.clone(this.atts);
-      // Add bootstrap class
-      atts = AutoForm.Utility.addClass(atts, "form-control");
       return atts;
     }
   });
@@ -69,7 +67,7 @@ _.each([
     atts: function addFormControlAtts() {
       var atts = _.clone(this.atts);
       // Add bootstrap class
-      atts = AutoForm.Utility.addClass(atts, "btn");
+      atts = AutoForm.Utility.addClass(atts, "button");
       return atts;
     }
   });
