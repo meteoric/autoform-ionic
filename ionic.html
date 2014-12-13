@@ -28,13 +28,17 @@
 </template>
 
 <template name="afFormGroup_ionic">
-  <div class="form-group {{#if afFieldIsInvalid name=this.atts.name}}has-error{{/if}}">
-    {{#unless skipLabel}}
-      <label {{bsFieldLabelAtts}}>{{#if this.labelText}}{{this.labelText}}{{else}}{{afFieldLabelText name=this.atts.name}}{{/if}}</label>
-    {{/unless}}
+  {{#if skipLabel}}
     {{> afFieldInput this.afFieldInputAtts}}
-    <span class="help-block">{{{afFieldMessage name=this.atts.name}}}</span>
-  </div>
+  {{else}}
+    <label {{ionicFieldLabelAtts}}>
+      <span class="input-label">{{#if this.labelText}}{{this.labelText}}{{else}}{{afFieldLabelText name=this.atts.name}}{{/if}}</span>
+      {{> afFieldInput this.afFieldInputAtts}}
+    </label>
+  {{/if}}
+  {{#if afFieldIsInvalid name=this.atts.name}}
+    <div class="item item-text-wrap assertive"><i class="icon ion-android-alert"></i> {{{afFieldMessage name=this.atts.name}}}</div>
+  {{/if}}
 </template>
 
 <template name="afObjectField_ionic">
@@ -87,7 +91,7 @@
 </template>
 
 <template name="afCheckboxGroup_ionic">
-  <div class="list af-checkbox-group" {{dsk}}>
+  <div class="af-checkbox-group" {{dsk}}>
     {{#each this.items}}
       <div class="item item-checkbox">
         <label class="checkbox">
@@ -100,7 +104,7 @@
 </template>
 
 <template name="afCheckboxGroupInline_ionic">
-  <div class="list af-checkbox-group" {{dsk}}>
+  <div class="af-checkbox-group" {{dsk}}>
     {{#each this.items}}
     <div class="item item-checkbox">
       <label class="checkbox">
@@ -123,7 +127,7 @@
 </template>
 
 <template name="afRadioGroup_ionic">
-  <div class="list af-radio-group" {{dsk}}>
+  <div class="af-radio-group" {{dsk}}>
     {{#each this.items}}
       <div class="item item-radio">
         <input type="radio" value="{{this.value}}" {{atts}} />
@@ -137,7 +141,7 @@
 </template>
 
 <template name="afRadioGroupInline_ionic">
-  <div class="list af-radio-group" {{dsk}}>
+  <div class="af-radio-group" {{dsk}}>
     {{#each this.items}}
       <div class="item item-radio">
         <input type="radio" value="{{this.value}}" {{atts}} />
@@ -151,7 +155,7 @@
 </template>
 
 <template name="afBooleanRadioGroup_ionic">
-  <div class="list" {{dsk}}>
+  <div {{dsk}}>
     <div class="item item-radio">
       <input type="radio" value="false" name="{{this.name}}" {{falseAtts}} />
       <div class="item-content">
@@ -170,7 +174,6 @@
 </template>
 
 <template name="afSelect_ionic">
-  <div class="item item-input item-select">
   <select {{atts}}>
     {{#each this.items}}
       {{#if this.optgroup}}
@@ -208,6 +211,18 @@
       {{/if}}
     {{/each}}
   </select>
+</template>
+
+<template name="afToggle_ionic">
+  <div class="item item-toggle">
+    {{afFieldLabelText name=this.name}}
+    <label class="toggle">
+      <input type="checkbox" value="{{this.value}}" {{atts}} />
+      <div class="track">
+        <div class="handle"></div>
+      </div>
+    </label>
+  </div>
 </template>
 
 <template name="afTextarea_ionic">

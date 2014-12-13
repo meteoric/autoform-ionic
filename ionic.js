@@ -18,14 +18,19 @@ Template['quickForm_ionic'].helpers({
 Template['afFormGroup_ionic'].helpers({
   skipLabel: function bsFormGroupSkipLabel() {
     var self = this;
-
+    var skipLabelTypes = [
+      "checkbox", "checkbox-group", "boolean-checkbox",
+      "radio", "radio-group", "radio-group-inline", "boolean-radio", "boolean-radio-group",
+      "select", "boolean-select", "select-multiple",
+      "toggle"
+    ];
     var type = AutoForm.getInputType(self.afFieldInputAtts);
-    return (self.skipLabel || type === "boolean-checkbox");
+    return (self.skipLabel || _.contains(skipLabelTypes, type));
   },
-  bsFieldLabelAtts: function bsFieldLabelAtts() {
+  ionicFieldLabelAtts: function ionicFieldLabelAtts() {
     var atts = _.clone(this.afFieldLabelAtts);
     // Add bootstrap class
-    atts = AutoForm.Utility.addClass(atts, "control-label");
+    atts = AutoForm.Utility.addClass(atts, "item item-input item-stacked-label");
     return atts;
   }
 });
@@ -141,5 +146,15 @@ Template["afBooleanRadioGroup_ionic"].helpers({
   },
   dsk: function () {
     return {'data-schema-key': this.atts['data-schema-key']};
+  }
+});
+
+
+// Custom Ionic input types:
+
+AutoForm.addInputType('toggle', {
+  template: 'afToggle_ionic',
+  valueOut: function () {
+    return !!this.is(":checked");
   }
 });
