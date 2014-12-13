@@ -1,8 +1,12 @@
-# Ionic theme for [Autoform](https://github.com/aldeed/meteor-autoform)
+# [Ionic](http://ionicframework.com/) theme for [Autoform](https://github.com/aldeed/meteor-autoform)
 
 Meteor Autoform templates styled for Ionic.
 
 This package depends on [aldeed:autoform](https://atmospherejs.com/aldeed/autoform)
+
+## WIP
+
+This project has not yet been published to atmosphere.
 
 ## Bring Your Own Ionic
 
