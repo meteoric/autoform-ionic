@@ -21,12 +21,12 @@ This project has not yet been published to atmosphere.
 ## Installation
 
 ```
-meteor add nickw:autoform-ionic
+meteor add meteoric:autoform-ionic
 ```
 
 ## Bring Your Own Ionic
 
-Adding this package with `meteor add nickw:autoform-ionic` does not add any other packages providing Ionic. This is to let you choose the flavour you prefer, being it compiled, less, sass, or from CDN!
+Adding this package with `meteor add meteoric:autoform-ionic` does not add any other packages providing Ionic. This is to let you choose the flavour you prefer, being it compiled, less, sass, or from CDN!
 
 At the moment it is up to date with Ionic 2.0.0.
 

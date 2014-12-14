@@ -1,8 +1,8 @@
 Package.describe({
-  name: "nickw:autoform-ionic",
+  name: "meteoric:autoform-ionic",
   summary: "Ionic theme for Autoform",
   version: "0.1.0",
-  git: "https://github.com/nickw/meteor-autoform-ionic.git"
+  git: "https://github.com/meteoric/autoform-ionic.git"
 });
 
 Package.onUse(function(api) {
