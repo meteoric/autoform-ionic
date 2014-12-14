@@ -1,0 +1,11 @@
+<template name="contactsEdit">
+  {{#contentFor "leftNavButton"}}
+    <a href="{{pathFor 'contacts.show' _id=contact._id}}" class="button button-clear">Cancel</a>
+  {{/contentFor}}
+
+  {{#contentFor "title"}}
+    <h1 class="title">Edit Contact</h1>
+  {{/contentFor}}
+
+  {{> quickForm collection="Contacts" doc=contact id="contacts-edit-form" type="update" omitFields="avatarUrl" buttonContent="Save Contact"}}
+</template>

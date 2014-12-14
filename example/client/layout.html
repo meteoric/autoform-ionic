@@ -1,0 +1,18 @@
+<template name="layout">
+  <div class="bar bar-header bar-positive">
+    {{> yield "leftNavButton"}}
+    {{> yield "title"}}
+    {{> yield "rightNavButton"}}
+  </div>
+  <div class="scroll-content ionic-scroll">
+    <div class="content overflow-scroll has-header has-tabs">
+      {{> yield}}
+    </div>
+  </div>
+  <div class="tabs tabs-icon-top">
+    <a href="{{pathFor 'contacts'}}" class="tab-item">
+      <i class="icon ion-person-stalker"></i>
+      Contacts
+    </a>
+  </div>
+</template>

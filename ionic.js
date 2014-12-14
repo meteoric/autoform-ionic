@@ -20,7 +20,7 @@ Template['afFormGroup_ionic'].helpers({
     var self = this;
     var skipLabelTypes = [
       "checkbox", "checkbox-group", "boolean-checkbox",
-      "radio", "radio-group", "radio-group-inline", "boolean-radio", "boolean-radio-group",
+      "select-radio", "select-radio-group", "select-radio-group-inline", "boolean-radio", "boolean-radio-group",
       "select", "boolean-select", "select-multiple",
       "toggle"
     ];
@@ -29,8 +29,18 @@ Template['afFormGroup_ionic'].helpers({
   },
   ionicFieldLabelAtts: function ionicFieldLabelAtts() {
     var atts = _.clone(this.afFieldLabelAtts);
-    // Add bootstrap class
-    atts = AutoForm.Utility.addClass(atts, "item item-input item-stacked-label");
+    var classes = ['item', 'item-input'];
+
+    if (atts.type === 'placeholder') {
+      // TODO: how to skip label?
+    } else if (atts.type === 'stacked') {
+      classes.push('item-stacked-label');
+    }
+    else if (atts.type === 'floating') {
+      classes.push('item-floating-label');
+    }
+
+    atts = AutoForm.Utility.addClass(atts, classes.join(' '));
     return atts;
   }
 });
@@ -152,9 +162,75 @@ Template["afBooleanRadioGroup_ionic"].helpers({
 
 // Custom Ionic input types:
 
-AutoForm.addInputType('toggle', {
-  template: 'afToggle_ionic',
+AutoForm.addInputType("toggle", {
+  template: "afToggle_ionic",
   valueOut: function () {
     return !!this.is(":checked");
+  },
+  valueConverters: {
+    "string": function (val) {
+      if (val === true) {
+        return "TRUE";
+      } else if (val === false) {
+        return "FALSE";
+      }
+      return val;
+    },
+    "stringArray": function (val) {
+      if (val === true) {
+        return ["TRUE"];
+      } else if (val === false) {
+        return ["FALSE"];
+      }
+      return val;
+    },
+    "number": function (val) {
+      if (val === true) {
+        return 1;
+      } else if (val === false) {
+        return 0;
+      }
+      return val;
+    },
+    "numberArray": function (val) {
+      if (val === true) {
+        return [1];
+      } else if (val === false) {
+        return [0];
+      }
+      return val;
+    }
+  },
+  contextAdjust: function (context) {
+    if (context.value === true) {
+      context.atts.checked = "";
+    }
+    //don't add required attribute to checkboxes because some browsers assume that to mean that it must be checked, which is not what we mean by "required"
+    delete context.atts.required;
+    return context;
   }
 });
+
+// Stacked Labels: http://ionicframework.com/docs/components/#forms-stacked-labels
+// ('label-type': 'stacked')
+Template.afFormGroup_ionic.rendered = function () {
+  var template = this;
+  var isFloating = template.$('.item-floating-label').length;
+
+  if (isFloating) {
+    template.$('input').on('keydown.item-floating-label', function (event) {
+      if ($(this).val() !== '') {
+        template.$('.item-floating-label .input-label').addClass('has-input');
+      } else {
+        template.$('.item-floating-label .input-label').removeClass('has-input');
+      }
+    });
+
+    template.$('input').trigger('keydown.item-floating-label');
+  }
+};
+
+Template.afFormGroup_ionic.destroyed = function () {
+  var template = this;
+  template.$('input').off('keydown.item-floating-label');
+};

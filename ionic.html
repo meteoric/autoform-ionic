@@ -42,43 +42,45 @@
 </template>
 
 <template name="afObjectField_ionic">
-  <div class="card">
-    {{#with afFieldLabelText name=this.atts.name}}
-      <div class="item item-divider">
-        {{this}}
-      </div>
-    {{/with}}
-    <div class="item item-text-wrap">
-      {{#if afFieldIsInvalid name=this.atts.name}}
-        <div class="assertive">{{{afFieldMessage name=this.atts.name}}}</div>
-      {{/if}}
-      {{> afQuickFields name=this.atts.name}}
+  {{#with afFieldLabelText name=this.atts.name}}
+    <div class="item item-divider">
+      {{this}}
     </div>
-  </div>
+  {{/with}}
+  {{#if afFieldIsInvalid name=this.atts.name}}
+    <div class="assertive">{{{afFieldMessage name=this.atts.name}}}</div>
+  {{/if}}
+  {{> afQuickFields name=this.atts.name}}
 </template>
 
 <template name="afArrayField_ionic">
-  <div class="list card">
-    <div class="item item-divider">{{afFieldLabelText name=this.atts.name}}</div>
-    {{#if afFieldIsInvalid name=this.atts.name}}
-      <div class="item item-text-wrap">
-        <span class="assertive">{{{afFieldMessage name=this.atts.name}}}</span>
-      </div>
-    {{/if}}
-    {{#afEachArrayItem name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
-      <div class="item item-icon-left autoform-array-item">
-        {{#if afArrayFieldHasMoreThanMinimum name=../atts.name minCount=../atts.minCount maxCount=../atts.maxCount}}
-          <button type="button" class="button button-assertive autoform-remove-item pull-left"><span class="icon ion-minus"></span></button>
-        {{/if}}
-        {{> afQuickField name=this.name label=false options="auto"}}
-      </div>
-    {{/afEachArrayItem}}
+  <div class="item item-divider">
+    {{afFieldLabelText name=this.atts.name}}
+
     {{#if afArrayFieldHasLessThanMaximum name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
-      <div class="item">
-        <button type="button" class="button button-balanced button-block autoform-add-item" data-autoform-field="{{this.atts.name}}" data-autoform-minCount="{{this.atts.minCount}}" data-autoform-maxCount="{{this.atts.maxCount}}"><span class="icon ion-plus"></span> Add</button>
-      </div>
+      <button type="button" class="button button-clear button-small pull-right autoform-add-item" data-autoform-field="{{this.atts.name}}" data-autoform-minCount="{{this.atts.minCount}}" data-autoform-maxCount="{{this.atts.maxCount}}">
+        Add <span class="icon ion-plus"></span>
+      </button>
     {{/if}}
   </div>
+  {{#if afFieldIsInvalid name=this.atts.name}}
+    <div class="item item-text-wrap">
+      <span class="assertive">{{{afFieldMessage name=this.atts.name}}}</span>
+    </div>
+  {{/if}}
+  {{#afEachArrayItem name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
+    <div class="card autoform-array-item">
+      {{> afQuickField name=this.name label=false options="auto"}}
+      {{#if afArrayFieldHasMoreThanMinimum name=../atts.name minCount=../atts.minCount maxCount=../atts.maxCount}}
+        <div class="item item-divider">
+          <button type="button" class="button button-clear button-small pull-right autoform-remove-item">
+            Remove <span class="icon ion-close"></span>
+          </button>
+        </div>
+      {{/if}}
+    </div>
+  {{/afEachArrayItem}}
+
 </template>
 
 <template name="afCheckbox_ionic">
@@ -117,25 +119,28 @@
 </template>
 
 <template name="afRadio_ionic">
-  <div class="item item-radio">
+  <label class="item item-radio">
     <input type="radio" value="{{this.value}}" {{atts}} />
     <div class="item-content">
       {{afFieldLabelText name=this.name}}
     </div>
     <i class="radio-icon ion-checkmark"></i>
-  </div>
+  </label>
 </template>
 
 <template name="afRadioGroup_ionic">
   <div class="af-radio-group" {{dsk}}>
+    <div class="item item-divider">
+      {{afFieldLabelText name=this.name}}
+    </div>
     {{#each this.items}}
-      <div class="item item-radio">
+      <label class="item item-radio">
         <input type="radio" value="{{this.value}}" {{atts}} />
         <div class="item-content">
-          {{afFieldLabelText name=this.name}}
+          {{this.label}}
         </div>
         <i class="radio-icon ion-checkmark"></i>
-      </div>
+      </label>
     {{/each}}
   </div>
 </template>
@@ -143,74 +148,89 @@
 <template name="afRadioGroupInline_ionic">
   <div class="af-radio-group" {{dsk}}>
     {{#each this.items}}
-      <div class="item item-radio">
+      <label class="item item-radio">
         <input type="radio" value="{{this.value}}" {{atts}} />
         <div class="item-content">
           {{afFieldLabelText name=this.name}}
         </div>
         <i class="radio-icon ion-checkmark"></i>
-      </div>
+      </label>
     {{/each}}
   </div>
 </template>
 
 <template name="afBooleanRadioGroup_ionic">
   <div {{dsk}}>
-    <div class="item item-radio">
+    <label class="item item-radio">
       <input type="radio" value="false" name="{{this.name}}" {{falseAtts}} />
       <div class="item-content">
         {{#with this.atts.falseLabel}}{{this}}{{else}}False{{/with}}
       </div>
       <i class="radio-icon ion-checkmark"></i>
-    </div>
-    <div class="item item-radio">
+    </label>
+    <label class="item item-radio">
       <input type="radio" value="true" name="{{this.name}}" {{trueAtts}} />
       <div class="item-content">
         {{#with this.atts.trueLabel}}{{this}}{{else}}True{{/with}}
       </div>
       <i class="radio-icon ion-checkmark"></i>
-    </div>
+    </label>
   </div>
 </template>
 
 <template name="afSelect_ionic">
-  <select {{atts}}>
-    {{#each this.items}}
-      {{#if this.optgroup}}
-        <optgroup label="{{this.optgroup}}">
-          {{#each this.items}}
+  <label class="item item-input item-select">
+    <div class="input-label">
+      {{afFieldLabelText name=this.name}}
+    </div>
+    <select {{atts}}>
+      {{#each this.items}}
+        {{#if this.optgroup}}
+          <optgroup label="{{this.optgroup}}">
+            {{#each this.items}}
+            <option {{optionAtts}}>{{this.label}}</option>
+            {{/each}}
+          </optgroup>
+        {{else}}
           <option {{optionAtts}}>{{this.label}}</option>
-          {{/each}}
-        </optgroup>
-      {{else}}
-        <option {{optionAtts}}>{{this.label}}</option>
-      {{/if}}
-    {{/each}}
-  </select>
+        {{/if}}
+      {{/each}}
+    </select>
+  </label>
 </template>
 
 <template name="afBooleanSelect_ionic">
-  <select {{atts}}>
-    {{#each this.items}}
-      <option {{optionAtts}}>{{this.label}}</option>
-    {{/each}}
-  </select>
+  <label class="item item-input item-select">
+    <div class="input-label">
+      {{afFieldLabelText name=this.name}}
+    </div>
+    <select {{atts}}>
+      {{#each this.items}}
+        <option {{optionAtts}}>{{this.label}}</option>
+      {{/each}}
+    </select>
+  </label>
 </template>
 
 <template name="afSelectMultiple_ionic">
-  <select {{atts}} multiple>
-    {{#each this.items}}
-      {{#if this.optgroup}}
-        <optgroup label="{{this.optgroup}}">
-          {{#each this.items}}
-            <option {{optionAtts}}>{{this.label}}</option>
-          {{/each}}
-        </optgroup>
-      {{else}}
-        <option {{optionAtts}}>{{this.label}}</option>
-      {{/if}}
-    {{/each}}
-  </select>
+  <label class="item item-input item-select">
+    <div class="input-label">
+      {{afFieldLabelText name=this.name}}
+    </div>
+    <select {{atts}} multiple>
+      {{#each this.items}}
+        {{#if this.optgroup}}
+          <optgroup label="{{this.optgroup}}">
+            {{#each this.items}}
+              <option {{optionAtts}}>{{this.label}}</option>
+            {{/each}}
+          </optgroup>
+        {{else}}
+          <option {{optionAtts}}>{{this.label}}</option>
+        {{/if}}
+      {{/each}}
+    </select>
+  </label>
 </template>
 
 <template name="afToggle_ionic">

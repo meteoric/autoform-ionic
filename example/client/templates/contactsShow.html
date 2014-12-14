@@ -1,0 +1,51 @@
+<template name="contactsShow">
+  {{#contentFor "leftNavButton"}}
+    <a href="{{pathFor 'contacts'}}" class="button button-clear"><i class="icon ion-ios7-arrow-back"></i> Contacts</a>
+  {{/contentFor}}
+
+  {{#contentFor "title"}}
+    <h1 class="title">Details</h1>
+  {{/contentFor}}
+
+  {{#contentFor "rightNavButton"}}
+    <a href="{{pathFor 'contacts.edit' _id=contact._id}}" class="button button-clear">Edit</a>
+  {{/contentFor}}
+
+  <div class="padding">
+    {{#with contact}}
+      <div class="list card">
+
+        <div class="item item-avatar">
+          <img src="{{avatarUrl}}">
+          <h2>{{name.first}} {{name.last}}</h2>
+          <p>{{location.city}}, {{location.state}}</p>
+        </div>
+
+        <div class="item item-body">
+          {{{activeLabel}}}
+
+          <h4>Notes</h4>
+          <p>
+            {{details.notes}}
+          </p>
+        </div>
+
+        <div class="item tabs tabs-secondary tabs-icon-left">
+          <a class="tab-item" href="#" data-action="fake">
+            <i class="icon ion-email"></i>
+            Send Email
+          </a>
+          <a class="tab-item" href="#" data-action="fake">
+            <i class="icon ion-iphone"></i>
+            Call
+          </a>
+          <a class="tab-item" href="#" data-action="fake">
+            <i class="icon ion-share"></i>
+            Share
+          </a>
+        </div>
+
+      </div>
+    {{/with}}
+  </div>
+</template>

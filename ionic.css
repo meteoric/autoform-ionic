@@ -1,0 +1,13 @@
+/* For afArrayField_ionic */
+.item.item-divider .button .icon:before {
+  line-height: 14px;
+}
+
+.item.item-divider .button.pull-right {
+  float: right;
+  padding: 0;
+  max-height: 20px;
+  min-height: 20px;
+  line-height: 20px;
+  margin: 0;
+}

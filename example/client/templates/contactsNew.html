@@ -1,0 +1,11 @@
+<template name="contactsNew">
+  {{#contentFor "leftNavButton"}}
+    <a href="{{pathFor 'contacts'}}" class="button button-icon button-clear">Cancel</a>
+  {{/contentFor}}
+
+  {{#contentFor "title"}}
+    <h1 class="title">New Contact</h1>
+  {{/contentFor}}
+
+  {{> quickForm collection="Contacts" id="contacts-new-form" type="insert" omitFields="avatarUrl,details.active" buttonContent="Create Contact"}}
+</template>
