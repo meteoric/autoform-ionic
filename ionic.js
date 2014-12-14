@@ -32,7 +32,7 @@ Template['afFormGroup_ionic'].helpers({
     var classes = ['item', 'item-input'];
 
     if (atts.type === 'placeholder') {
-      // TODO: how to skip label?
+      atts.placeholderOnly = true;
     } else if (atts.type === 'stacked') {
       classes.push('item-stacked-label');
     }
@@ -211,8 +211,8 @@ AutoForm.addInputType("toggle", {
   }
 });
 
-// Stacked Labels: http://ionicframework.com/docs/components/#forms-stacked-labels
-// ('label-type': 'stacked')
+// Floating Labels: http://ionicframework.com/docs/components/#forms-floating-labels
+// 'label-type': 'floating'
 Template.afFormGroup_ionic.rendered = function () {
   var template = this;
   var isFloating = template.$('.item-floating-label').length;

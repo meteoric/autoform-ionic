@@ -39,7 +39,7 @@ Contacts.attachSchema(new SimpleSchema({
     type: String,
     regEx: SimpleSchema.RegEx.Email,
     autoform: {
-      label: false,
+      'label-type': 'placeholder',
       placeholder: 'Email Address'
     }
   },

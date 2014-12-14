@@ -32,7 +32,9 @@
     {{> afFieldInput this.afFieldInputAtts}}
   {{else}}
     <label {{ionicFieldLabelAtts}}>
-      <span class="input-label">{{#if this.labelText}}{{this.labelText}}{{else}}{{afFieldLabelText name=this.atts.name}}{{/if}}</span>
+      {{#unless ionicFieldLabelAtts.placeholderOnly}}
+        <span class="input-label">{{#if this.labelText}}{{this.labelText}}{{else}}{{afFieldLabelText name=this.atts.name}}{{/if}}</span>
+      {{/unless}}
       {{> afFieldInput this.afFieldInputAtts}}
     </label>
   {{/if}}

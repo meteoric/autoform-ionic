@@ -14,7 +14,7 @@ This project has not yet been published to atmosphere.
 - Custom [toggle](http://ionicframework.com/docs/components/#toggle) input type
 - Support for multiple label types:
   - [Inline Labels](http://ionicframework.com/docs/components/#forms-inline-labels) (default)
-  - [Placeholder Labels](http://ionicframework.com/docs/components/#forms-placeholder-labels) (label: false, placeholder: 'Label Here')
+  - [Placeholder Labels](http://ionicframework.com/docs/components/#forms-placeholder-labels) ('label-type': 'placeholder', placeholder: 'Label Here')
   - [Stacked Labels](http://ionicframework.com/docs/components/#forms-stacked-labels) ('label-type': 'stacked')
   - [Floating Labels](http://ionicframework.com/docs/components/#forms-floating-labels) ('label-type': 'floating', placeholder: 'Label Here')
 
