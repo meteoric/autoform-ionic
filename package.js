@@ -13,5 +13,5 @@ Package.onUse(function(api) {
     "ionic.html",
     "ionic.css",
     "ionic.js"
-    ], "client");
-  });
+  ], "client");
+});
