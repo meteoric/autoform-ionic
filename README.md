@@ -1,6 +1,8 @@
-# [Ionic](http://ionicframework.com/) theme for [Autoform](https://github.com/aldeed/meteor-autoform)
+![](http://f.cl.ly/items/391y4708420P0H001k1G/meteoric.png)
 
-Meteor Autoform ([aldeed:autoform](https://atmospherejs.com/aldeed/autoform)) templates styled for Ionic.
+# autoform-ionic
+
+Meteor Autoform ([aldeed:autoform](https://atmospherejs.com/aldeed/autoform)) templates styled for [Ionic](http://ionicframework.com/).
 
 ## Features
 
@@ -22,7 +24,7 @@ meteor add meteoric:autoform-ionic
 
 Adding this package with `meteor add meteoric:autoform-ionic` does not add any other packages providing Ionic. This is to let you choose the flavour you prefer, being it compiled, less, sass, or from CDN!
 
-At the moment it is up to date with Ionic 2.0.0.
+We recommend including our [meteoric:ionic-sass](https://github.com/meteoric/ionic-sass) and [meteoric:ionicons-sass](https://github.com/meteoric/ionicons-sass) packages.
 
 ## Usage
 
