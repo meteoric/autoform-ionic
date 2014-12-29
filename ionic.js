@@ -165,8 +165,6 @@ Template["afBooleanRadioGroup_ionic"].helpers({
 AutoForm.addInputType("toggle", {
   template: "afToggle",
   valueOut: function () {
-    debugger;
-    console.log('this', this);
     return !!this.is(":checked");
   },
   valueConverters: {
