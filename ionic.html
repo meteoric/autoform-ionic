@@ -123,10 +123,10 @@
 <template name="afRadio_ionic">
   <label class="item item-radio">
     <input type="radio" value="{{this.value}}" {{atts}} />
-    <div class="item-content">
+    <div class="item-content disable-pointer-events">
       {{afFieldLabelText name=this.name}}
     </div>
-    <i class="radio-icon ion-checkmark"></i>
+    <i class="radio-icon ion-checkmark disable-pointer-events"></i>
   </label>
 </template>
 
@@ -138,10 +138,10 @@
     {{#each this.items}}
       <label class="item item-radio">
         <input type="radio" value="{{this.value}}" {{atts}} />
-        <div class="item-content">
+        <div class="item-content disable-pointer-events">
           {{this.label}}
         </div>
-        <i class="radio-icon ion-checkmark"></i>
+        <i class="radio-icon ion-checkmark disable-pointer-events"></i>
       </label>
     {{/each}}
   </div>
@@ -152,10 +152,10 @@
     {{#each this.items}}
       <label class="item item-radio">
         <input type="radio" value="{{this.value}}" {{atts}} />
-        <div class="item-content">
+        <div class="item-content disable-pointer-events">
           {{afFieldLabelText name=this.name}}
         </div>
-        <i class="radio-icon ion-checkmark"></i>
+        <i class="radio-icon ion-checkmark disable-pointer-events"></i>
       </label>
     {{/each}}
   </div>
@@ -165,17 +165,17 @@
   <div {{dsk}}>
     <label class="item item-radio">
       <input type="radio" value="false" name="{{this.name}}" {{falseAtts}} />
-      <div class="item-content">
+      <div class="item-content disable-pointer-events">
         {{#with this.atts.falseLabel}}{{this}}{{else}}False{{/with}}
       </div>
-      <i class="radio-icon ion-checkmark"></i>
+      <i class="radio-icon ion-checkmark disable-pointer-events"></i>
     </label>
     <label class="item item-radio">
       <input type="radio" value="true" name="{{this.name}}" {{trueAtts}} />
-      <div class="item-content">
+      <div class="item-content disable-pointer-events">
         {{#with this.atts.trueLabel}}{{this}}{{else}}True{{/with}}
       </div>
-      <i class="radio-icon ion-checkmark"></i>
+      <i class="radio-icon ion-checkmark disable-pointer-events"></i>
     </label>
   </div>
 </template>
