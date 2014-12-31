@@ -14,6 +14,11 @@ Meteor Autoform ([aldeed:autoform](https://atmospherejs.com/aldeed/autoform)) te
   - [Stacked Labels](http://ionicframework.com/docs/components/#forms-stacked-labels) ('label-type': 'stacked')
   - [Floating Labels](http://ionicframework.com/docs/components/#forms-floating-labels) ('label-type': 'floating', placeholder: 'Label Here')
 
+## Examples
+
+### [Contacts App](https://github.com/meteoric/contacts)
+A simple CRUD app to manage contacts.
+
 ## Installation
 
 ```
