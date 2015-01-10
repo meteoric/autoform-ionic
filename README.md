@@ -51,3 +51,6 @@ Or on a per-form basis:
 ```
 {{> quickForm schema=mySchema id="myForm" template="ionic"}}
 ```
+
+## License
+[MIT License](/blob/master/LICENSE.txt)
