@@ -53,4 +53,4 @@ Or on a per-form basis:
 ```
 
 ## License
-[MIT License](/blob/master/LICENSE.txt)
+[MIT License](https://github.com/meteoric/autoform-ionic/blob/master/LICENSE)
