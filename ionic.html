@@ -27,6 +27,18 @@
   {{/autoForm}}
 </template>
 
+<template name="afQuickField_ionic">
+  {{#if isGroup atts=this}}
+    {{> afObjectField_ionic}}
+  {{else}}
+    {{#if isFieldArray atts=this}}
+      {{> afArrayField_ionic}}
+    {{else}}
+      {{> afFormGroup_ionic groupAtts}}
+    {{/if}}
+  {{/if}}
+</template>
+
 <template name="afFormGroup_ionic">
   {{#if skipLabel}}
     {{> afFieldInput this.afFieldInputAtts}}
@@ -181,7 +193,7 @@
 </template>
 
 <template name="afSelect_ionic">
-  <label class="item item-input item-select">
+  <label class="item item-input item-select item-text-wrap">
     <div class="input-label">
       {{afFieldLabelText name=this.name}}
     </div>
@@ -202,7 +214,7 @@
 </template>
 
 <template name="afBooleanSelect_ionic">
-  <label class="item item-input item-select">
+  <label class="item item-input item-select item-text-wrap">
     <div class="input-label">
       {{afFieldLabelText name=this.name}}
     </div>
@@ -215,7 +227,7 @@
 </template>
 
 <template name="afSelectMultiple_ionic">
-  <label class="item item-input item-select">
+  <label class="item item-input item-select item-text-wrap">
     <div class="input-label">
       {{afFieldLabelText name=this.name}}
     </div>
@@ -236,7 +248,7 @@
 </template>
 
 <template name="afToggle">
-  <div class="item item-toggle">
+  <div class="item item-toggle item-text-wrap">
     {{afFieldLabelText name=this.name}}
     <label class="toggle">
       <input type="checkbox" value="true" {{atts}} />
