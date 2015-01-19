@@ -226,7 +226,7 @@ Template.afFormGroup_ionic.rendered = function () {
   var isFloating = template.$('.item-floating-label').length;
 
   if (isFloating) {
-    template.$('input').on('keydown.item-floating-label', function (event) {
+    template.$('input').on('keyup.item-floating-label', function (event) {
       if ($(this).val() !== '') {
         template.$('.item-floating-label .input-label').addClass('has-input');
       } else {
@@ -240,5 +240,5 @@ Template.afFormGroup_ionic.rendered = function () {
 
 Template.afFormGroup_ionic.destroyed = function () {
   var template = this;
-  template.$('input').off('keydown.item-floating-label');
+  template.$('input').off('keyup.item-floating-label');
 };
