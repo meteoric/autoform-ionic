@@ -98,7 +98,7 @@
 </template>
 
 <template name="afCheckbox_ionic">
-  <div class="item item-checkbox">
+  <div class="item item-checkbox item-text-wrap">
     <label class="checkbox">
       <input type="checkbox" value="{{this.value}}" {{atts}} />
     </label>
@@ -109,7 +109,7 @@
 <template name="afCheckboxGroup_ionic">
   <div class="af-checkbox-group" {{dsk}}>
     {{#each this.items}}
-      <div class="item item-checkbox">
+      <div class="item item-checkbox item-text-wrap">
         <label class="checkbox">
           <input type="checkbox" value="{{this.value}}" {{atts}} />
         </label>
@@ -122,7 +122,7 @@
 <template name="afCheckboxGroupInline_ionic">
   <div class="af-checkbox-group" {{dsk}}>
     {{#each this.items}}
-    <div class="item item-checkbox">
+    <div class="item item-checkbox item-text-wrap">
       <label class="checkbox">
         <input type="checkbox" value="{{this.value}}" {{atts}} />
       </label>
@@ -133,7 +133,7 @@
 </template>
 
 <template name="afRadio_ionic">
-  <label class="item item-radio">
+  <label class="item item-radio item-text-wrap">
     <input type="radio" value="{{this.value}}" {{atts}} />
     <div class="item-content disable-pointer-events">
       {{afFieldLabelText name=this.name}}
@@ -148,7 +148,7 @@
       {{afFieldLabelText name=this.name}}
     </div>
     {{#each this.items}}
-      <label class="item item-radio">
+      <label class="item item-radio item-text-wrap">
         <input type="radio" value="{{this.value}}" {{atts}} />
         <div class="item-content disable-pointer-events">
           {{this.label}}
@@ -162,7 +162,7 @@
 <template name="afRadioGroupInline_ionic">
   <div class="af-radio-group" {{dsk}}>
     {{#each this.items}}
-      <label class="item item-radio">
+      <label class="item item-radio item-text-wrap">
         <input type="radio" value="{{this.value}}" {{atts}} />
         <div class="item-content disable-pointer-events">
           {{afFieldLabelText name=this.name}}
@@ -175,14 +175,14 @@
 
 <template name="afBooleanRadioGroup_ionic">
   <div {{dsk}}>
-    <label class="item item-radio">
+    <label class="item item-radio item-text-wrap">
       <input type="radio" value="false" name="{{this.name}}" {{falseAtts}} />
       <div class="item-content disable-pointer-events">
         {{#with this.atts.falseLabel}}{{this}}{{else}}False{{/with}}
       </div>
       <i class="radio-icon ion-checkmark disable-pointer-events"></i>
     </label>
-    <label class="item item-radio">
+    <label class="item item-radio item-text-wrap">
       <input type="radio" value="true" name="{{this.name}}" {{trueAtts}} />
       <div class="item-content disable-pointer-events">
         {{#with this.atts.trueLabel}}{{this}}{{else}}True{{/with}}
