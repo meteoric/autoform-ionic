@@ -108,6 +108,9 @@
 
 <template name="afCheckboxGroup_ionic">
   <div class="af-checkbox-group" {{dsk}}>
+    <div class="item item-divider">
+      {{afFieldLabelText name=this.name}}
+    </div>
     {{#each this.items}}
       <div class="item item-checkbox item-text-wrap">
         <label class="checkbox">

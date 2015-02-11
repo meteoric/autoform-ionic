@@ -19,7 +19,7 @@ Template['afFormGroup_ionic'].helpers({
   skipLabel: function bsFormGroupSkipLabel() {
     var self = this;
     var skipLabelTypes = [
-      "checkbox", "checkbox-group", "boolean-checkbox",
+      "checkbox", "checkbox-group", "boolean-checkbox", "select-checkbox",
       "select-radio", "select-radio-group", "select-radio-group-inline", "boolean-radio", "boolean-radio-group",
       "select", "boolean-select", "select-multiple",
       "toggle"
