@@ -45,26 +45,26 @@
   {{else}}
     <label {{ionicFieldLabelAtts}}>
       {{#unless ionicFieldLabelAtts.placeholderOnly}}
-        <span class="input-label">{{#if this.labelText}}{{this.labelText}}{{else}}{{afFieldLabelText name=this.atts.name}}{{/if}}</span>
+        <span class="input-label">{{#if this.labelText}}{{this.labelText}}{{else}}{{afFieldLabelText name=this.name}}{{/if}}</span>
       {{/unless}}
       {{> afFieldInput this.afFieldInputAtts}}
     </label>
   {{/if}}
-  {{#if afFieldIsInvalid name=this.atts.name}}
-    <div class="item item-text-wrap assertive"><i class="icon ion-android-alert"></i> {{{afFieldMessage name=this.atts.name}}}</div>
+  {{#if afFieldIsInvalid name=this.name}}
+    <div class="item item-text-wrap assertive"><i class="icon ion-android-alert"></i> {{{afFieldMessage name=this.name}}}</div>
   {{/if}}
 </template>
 
 <template name="afObjectField_ionic">
-  {{#with afFieldLabelText name=this.atts.name}}
+  {{#with afFieldLabelText name=this.name}}
     <div class="item item-divider">
       {{this}}
     </div>
   {{/with}}
-  {{#if afFieldIsInvalid name=this.atts.name}}
-    <div class="assertive">{{{afFieldMessage name=this.atts.name}}}</div>
+  {{#if afFieldIsInvalid name=this.name}}
+    <div class="assertive">{{{afFieldMessage name=this.name}}}</div>
   {{/if}}
-  {{> afQuickFields name=this.atts.name}}
+  {{> afQuickFields name=this.name}}
 </template>
 
 <template name="afArrayField_ionic">
