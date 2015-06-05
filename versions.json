@@ -2,11 +2,11 @@
   "dependencies": [
     [
       "aldeed:autoform",
-      "4.2.0"
+      "5.2.0"
     ],
     [
       "aldeed:simple-schema",
-      "1.1.0"
+      "1.3.3"
     ],
     [
       "base64",
@@ -14,7 +14,7 @@
     ],
     [
       "blaze",
-      "2.0.3"
+      "2.1.2"
     ],
     [
       "check",
@@ -69,8 +69,8 @@
       "1.0.5"
     ],
     [
-      "mrt:moment",
-      "2.6.0"
+      "momentjs:moment",
+      "2.8.4"
     ],
     [
       "observe-sequence",
@@ -83,6 +83,10 @@
     [
       "random",
       "1.0.1"
+    ],
+    [
+      "reactive-dict",
+      "1.0.4"
     ],
     [
       "reactive-var",
