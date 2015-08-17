@@ -226,7 +226,7 @@ Template.afFormGroup_ionic.rendered = function () {
   var isFloating = template.$('.item-floating-label').length;
 
   if (isFloating) {
-    template.$('input').on('keyup.item-floating-label', function (event) {
+    template.$('input, textarea').on('keyup.item-floating-label', function (event) {
       if ($(this).val() !== '') {
         template.$('.item-floating-label .input-label').addClass('has-input');
       } else {
