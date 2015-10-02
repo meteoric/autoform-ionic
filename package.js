@@ -8,7 +8,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom("1.0");
   api.use(["templating", "underscore"], "client");
-  api.use("aldeed:autoform@5.3.0");
+  api.use("aldeed:autoform@5.5.1");
   api.addFiles([
     "ionic.html",
     "ionic.css",
